@@ -2,51 +2,63 @@
   "questions": {
     "firstPage": [
       {
-        "title": "What is your first name?"
+        "title": "What is your first name?",
+        "required": true
       },
       {
-        "title": "...and last name?"
+        "title": "...and last name?",
+        "required": true
       },
       {
         "title": "What is your phone number?",
-        "subtitle": "Having your phone will help us communicate quicker, especially during scheduling. But we respect your privacy so at this stage it is optionally"
+        "subtitle": "Having your phone will help us communicate quicker, especially during scheduling. But we respect your privacy so at this stage it is optionally",
+        "required": false
       },
       {
         "title": "What is your country of residence",
-        "subtitle": "Where do you live currently"
+        "subtitle": "Where do you live currently",
+        "required": true
       },
       {
-        "title": "... and what city?"
+        "title": "... and what city?",
+        "required": true
       },
       {
         "title": "What is your nationality?",
-        "subtitle": "What country you are citizen of?"
+        "subtitle": "What country you are citizen of?",
+        "required": true
       }
     ],
     "secondPage": [
       {
         "title": "Linkedin",
-        "subtitle": "Do you have linkedln profile? If so, please enter it below"
+        "subtitle": "Do you have linkedln profile? If so, please enter it below",
+        "required": false
       },
       {
         "title": "Facebook",
-        "subtitle": "Do you have facebook? Care to share your profile address?"
+        "subtitle": "Do you have facebook? Care to share your profile address?",
+        "required": false
       },
       {
         "title": "Twitter",
-        "subtitle": "Do you tweet? Mind sharing your twitter handle url?"
+        "subtitle": "Do you tweet? Mind sharing your twitter handle url?",
+        "required": false
       },
       {
         "title": "Github",
-        "subtitle": "As a developer, it is highly valuable if you have and share your Github profile"
+        "subtitle": "As a developer, it is highly valuable if you have and share your Github profile",
+        "required": false
       },
       {
         "title": "Personal Website or Blog",
-        "subtitle": "Do you have your website/or blog? If so, we would like to check it out"
+        "subtitle": "Do you have your website/or blog? If so, we would like to check it out",
+        "required": false
       },
       {
         "title": "Any other references",
-        "subtitle": "Do you have any references you would like to share?"
+        "subtitle": "Do you have any references you would like to share?",
+        "required": false
       }
     ],
     "thirdPage": [
@@ -54,34 +66,49 @@
         "title": "How many years of experience do you have?",
         "subtitle": "How many years of experience directly relevant to the position you are applying",
         "firstDropdown": {
-          "years": ["1 year", "2 years", "3 years", "4 years"],
-          "id": "1"
-        }
+          "years": ["One to less", "One to three", "Three or more"]
+        },
+        "required": true
       },
       {
         "title": "How many years of total professional experience do you have?",
         "secondDropdown": {
-          "years": ["1 year", "2 years", "3 years", "4 years"],
-          "id": "1"
-        }
+          "years": ["1 year", "2 years", "3 years", "4 years"]
+        },
+        "required": true
       },
       {
         "title": "What domain is your expertise in?",
-        "results": ["Front-end", "Back-end", "Databases", "Algorithms"]
+        "results": [
+          "Front-end",
+          "Back-end",
+          "Databases",
+          "Algorithms",
+          "Architectures"
+        ],
+        "required": true
       },
       {
         "title": "Tell us about your expertise skills",
         "subtitle": "Which of the following skills you have experience working with",
-        "results": ["Angular", "HTML", "CSS", "ReactJS", "VueJS", "Java"]
+        "results": ["Angular", "HTML", "CSS", "ReactJS", "VueJS", "Java"],
+        "required": true
       },
       {
         "title": "Other expert skills?",
-        "subtitle": "Any other skills you consider yourself an expert? Please share it below"
+        "subtitle": "Any other skills you consider yourself an expert? Please share it below",
+        "required": false
       },
       {
         "title": "Are you familiar(but not an expert) in these skills",
         "subtitle": "Aside from expert skills do you have some familiarity with the following skills:",
-        "results": ["NodeJS", "C#", ".Net", "Angular", "ReactJS"]
+        "results": ["NodeJS", "C#", ".Net", "Angular", "ReactJS"],
+        "required": true
+      },
+      {
+        "title": "Any other skills/capabilities",
+        "subtitle": "Are there any other skills or capabilities aside from what you shared already, that you want to us to know about?",
+        "required": false
       }
     ]
   }
