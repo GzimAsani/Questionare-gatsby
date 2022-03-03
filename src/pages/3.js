@@ -1,21 +1,27 @@
 import data from "../assets/data.json"
+import Navbar from "../components/Navbar"
+import PageInformation from "../components/PageInformation"
 import React, { useState } from "react"
 import { Link } from "gatsby"
+import * as containerStyles from "../assets/css/card.module.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
-
+import {
+  faChevronDown,
+  faCircle,
+  faStar,
+} from "@fortawesome/free-solid-svg-icons"
 import styled from "styled-components"
-const Main = styled("div")`
-  font-family: sans-serif;
-`
-const DropDownContainer = styled("div")``
+
 const DropDownHeader = styled("div")`
-  color: blue;
   border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
 `
-const DropDownListContainer = styled("div")``
-const DropDownList = styled("ul")``
-const ListItem = styled("li")``
+
+const DropdownList = styled("li")`
+  margin-top: 1rem;
+  list-style-type: none;
+`
 
 const ThirdPage = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -41,20 +47,36 @@ const ThirdPage = () => {
   const result = data.questions.thirdPage.map(question => {
     if (question.title && question.results) {
       return (
-        <div>
-          <h4>{question.title}</h4>
-          <p>{question.subtitle}</p>
+        <div key={question.title} className={containerStyles.questions}>
+          <div className={containerStyles.relative}>
+            <FontAwesomeIcon
+              icon={faCircle}
+              className={containerStyles.circle}
+            />
+            <div className={containerStyles.flex}>
+              <h4>{question.title}</h4>
+              {question.required && (
+                <FontAwesomeIcon
+                  icon={faStar}
+                  className={containerStyles.star}
+                />
+              )}
+            </div>
+            <p className={containerStyles.marginB}>{question.subtitle}</p>
+          </div>
           {question.results.map(result => {
             return (
               <form>
-                <input
-                  type="radio"
-                  id="html"
-                  name="fav_language"
-                  value={`${result}`}
-                />
-                  <label htmlFor="html">{result}</label>
-                <br></br>
+                <div className={containerStyles.form}>
+                  <input
+                    type="radio"
+                    id="html"
+                    name="fav_language"
+                    className={containerStyles.input}
+                    value={`${result}`}
+                  />
+                  <label htmlFor="html">{result}</label>
+                </div>
               </form>
             )
           })}
@@ -62,82 +84,145 @@ const ThirdPage = () => {
       )
     } else if (question.title && question.firstDropdown) {
       return (
-        <Main>
-          <h4>{question.title}</h4>
-          <p>{question.subtitle}</p>
-          <DropDownContainer>
+        <div key={question.title} className={containerStyles.questions}>
+          <div className={containerStyles.relative}>
+            <FontAwesomeIcon
+              icon={faCircle}
+              className={containerStyles.circle}
+            />
+            <div className={containerStyles.flex}>
+              <h4 className={containerStyles.marginB}>{question.title}</h4>
+              {question.required && (
+                <FontAwesomeIcon
+                  icon={faStar}
+                  className={containerStyles.star}
+                />
+              )}
+            </div>
+            <p className={containerStyles.marginB}>{question.subtitle}</p>
+          </div>
+          <div>
             <DropDownHeader onClick={toggling}>
               {selectedOption ? selectedOption : "Choose"}
               <FontAwesomeIcon icon={faChevronDown} />
             </DropDownHeader>
             {isOpen && (
-              <DropDownListContainer>
-                <DropDownList>
-                  {console.log(question.dropdown)}
-                  {question.firstDropdown.years.map(data => {
+              <div>
+                <ul>
+                  {question.firstDropdown.years.map((data, index) => {
                     return (
-                      <ListItem
-                        onClick={onOptionClicked(data)}
-                        key={Math.random()}
-                      >
+                      <DropdownList onClick={onOptionClicked(data)} key={index}>
                         {data}
-                      </ListItem>
+                      </DropdownList>
                     )
                   })}
-                </DropDownList>
-              </DropDownListContainer>
+                </ul>
+              </div>
             )}
-          </DropDownContainer>
-        </Main>
+          </div>
+        </div>
       )
     } else if (question.title && question.secondDropdown) {
       return (
-        <Main>
-          <h4>{question.title}</h4>
-          <p>{question.subtitle}</p>
-          <DropDownContainer>
+        <div key={question.title} className={containerStyles.questions}>
+          <div className={containerStyles.relative}>
+            <FontAwesomeIcon
+              icon={faCircle}
+              className={containerStyles.circle}
+            />
+            <div className={containerStyles.flex}>
+              <h4 className={containerStyles.marginB}>{question.title}</h4>
+              {question.required && (
+                <FontAwesomeIcon
+                  icon={faStar}
+                  className={containerStyles.star}
+                />
+              )}
+            </div>
+            <p className={containerStyles.marginB}>{question.subtitle}</p>
+          </div>
+          <div>
             <DropDownHeader onClick={toggling2}>
               {selectedOption2 ? selectedOption2 : "Choose"}
               <FontAwesomeIcon icon={faChevronDown} />
             </DropDownHeader>
             {isOpen2 && (
-              <DropDownListContainer>
-                <DropDownList>
-                  {console.log(question.dropdown)}
-                  {question.secondDropdown.years.map(data => {
+              <div>
+                <ul>
+                  {question.secondDropdown.years.map((data, index) => {
                     return (
-                      <ListItem
+                      <DropdownList
+                        key={index}
                         onClick={onOptionClicked2(data)}
-                        key={Math.random()}
                       >
                         {data}
-                      </ListItem>
+                      </DropdownList>
                     )
                   })}
-                </DropDownList>
-              </DropDownListContainer>
+                </ul>
+              </div>
             )}
-          </DropDownContainer>
-        </Main>
+          </div>
+        </div>
       )
     } else if (question.subtitle) {
       return (
-        <div>
-          <h4>{question.title}</h4>
-          <p>{question.subtitle}</p>
-          <input />
+        <div key={question.title} className={containerStyles.questions}>
+          <div className={containerStyles.relative}>
+            <FontAwesomeIcon
+              icon={faCircle}
+              className={containerStyles.circle}
+            />
+            <div className={containerStyles.flex}>
+              <h4 className={containerStyles.marginB}>{question.title}</h4>
+              {question.required && (
+                <FontAwesomeIcon
+                  icon={faStar}
+                  className={containerStyles.star}
+                />
+              )}
+            </div>
+            <p className={containerStyles.marginB}>{question.subtitle}</p>
+            <input />
+          </div>
         </div>
       )
     } else {
       return (
-        <div>
+        <div key={question.title}>
           <h4>{question.title}</h4>
           <input />
         </div>
       )
     }
   })
-  return <div>{result}</div>
+  return (
+    <div className={containerStyles.relative}>
+      <Navbar />
+      <div className={containerStyles.topText}>
+        <h1 className={containerStyles.header}>Experience</h1>
+        <p>Help us get to know you by answering the following questions</p>
+      </div>
+      <div className={containerStyles.flex}>
+        <div className={containerStyles.card}>
+          {result}
+          <div className={`${containerStyles.flex} ${containerStyles.cece}`}>
+            <Link className={containerStyles.textDecoration} to="/2">
+              <button className={containerStyles.previousBtn}>Previous</button>
+            </Link>
+            <Link className={containerStyles.textDecoration} to="/3">
+              <button className={containerStyles.nextBtn}>Next</button>
+            </Link>
+          </div>
+        </div>
+        <div className={containerStyles.pagesList}>
+          <div className={containerStyles.vl}>
+            <PageInformation id={3} />
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default ThirdPage

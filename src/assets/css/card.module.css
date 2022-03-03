@@ -1,12 +1,13 @@
 .card {
   padding: 3rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-
+  width: 60em;
   margin-left: 5rem;
-  background-color: white;
+  background-color: rgb(252, 252, 252);
   border-style: solid;
   border-top-color: green !important;
-  border-color: white;
+  border-color: rgb(255, 255, 255);
+  margin-bottom: 5rem;
 }
 
 .pagesList {
@@ -21,6 +22,35 @@
 
 .questions {
   margin-bottom: 3rem;
+}
+
+.form {
+  display: flex;
+}
+
+.form label {
+  width: 10%;
+  margin-left: 1%;
+}
+
+.input {
+  margin-bottom: 1rem;
+}
+
+input[type='radio'] {
+  box-sizing: border-box;
+  width: 2% !important;
+  height: 1rem !important;
+  appearance: none;
+  background: white;
+  outline: 2px solid #333;
+  border: 3px solid white;
+  width: 16px;
+  height: 16px;
+}
+
+input[type='radio']:checked {
+  background-color: rgb(20, 27, 66)
 }
 
 .questions input {
@@ -42,8 +72,14 @@
 }
 
 .circle2 {
+  margin-bottom: 1.5rem;
   height: 1.4rem;
-  color: rgb(7, 170, 7)
+  color: rgb(20, 27, 66);
+  left: -10px;
+}
+
+.green {
+  color: rgb(7, 170, 7) !important;
 }
 
 .star {
@@ -62,16 +98,67 @@
 }
 
 .marginB {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
-.paddingTop {
-  padding-top: 0.4rem;
-  margin-left: 0.5rem
+
+
+.pageText {
+  width: max-content;
+  margin-top: 0.3rem;
+  margin-bottom: 1.5rem;
 }
 
 .vl {
-  height: 100px;
+  height: 25rem;
   border-left: 1px solid green;
+  margin: 15px;
   position: relative;
+}
+
+
+
+.cece {
+  justify-content: end;
+}
+
+.cece button {
+  color: white;
+  width: 6rem;
+  height: 2rem;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.cece button:hover {
+  height: 2.5rem;
+}
+
+.previousBtn {
+  background-color: rgb(7, 170, 7);
+}
+
+.previousBtn:hover {
+  background-color: rgb(50, 138, 50)
+}
+
+.nextBtn {
+  background-color: rgb(20, 27, 66)
+}
+
+.nextBtn:hover {
+  background-color: rgb(64, 74, 129)
+}
+
+.textDecoration {
+  text-decoration: none;
+  color: white;
+}
+
+.textDecoration2 {
+  text-decoration: none;
+}
+
+.header {
+  color: rgb(20, 27, 66)
 }

@@ -14,12 +14,6 @@ module.exports = {
     title: "Simply Recipes",
     description: "Nice and clean recipes site!",
     author: "@gzimasani",
-    // person: { name: "john", age: 32 },
-    // simpleData: ["item1", "item2"],
-    // complexData: [
-    //   { name: "john", age: 32 },
-    //   { name: "Suzan", age: 21 },
-    // ],
   },
   plugins: [
     `gatsby-plugin-styled-components`,
